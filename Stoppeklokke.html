@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stoppeklokke</title>
+    <style>
+#displayTime {
+    height:200px;
+    width:100px;
+    border: 2px solid black;
+}
+
+#displayLaps {
+    height:200px;
+    width:100px;
+    border: 2px solid black;
+}
+#body{
+    display: flex;
+}
+/* .clockDisplay{
+            height:20px;
+            width:40px;
+            border: 1px solid black;
+            margin-top: 10px;
+            margin-left: 100px;
+            background-color: antiquewhite;
+        } */
+    </style>
+</head>
+
+<body id="body">
+    <div class="allInside"></div>
+
+    <div id="displayTime" class="clockDisplay">0</div>
+    <div id="displayLaps"></div>
+
+    <div class="buttons">
+    <button id="startButton" onclick="start()">Start</button>
+    <button id="stopButton" onclick="stop()">Runde</button>
+    <button id="resetButton" onclick="reset()">Reset</button>
+    </div>
+</div>
+</div>
+    
+    <script>
+        const time = document.getElementById('displayTime');
+        const laps = document.getElementById('displayLaps');
+        
+        let seconds= 0;
+        var myTimer;
+
+        function counter() {
+            document.getElementById('displayTime').innerHTML = seconds;
+            seconds++;
+        }
+
+        function start() {
+            setInterval(counter, 1000);
+        }
+
+        function stop() {
+            document.getElementById('displayLaps').innerHTML += `<li> ${seconds} sekunder </li>`
+            clearInterval(myTimer);
+            seconds = 0;
+        }
+
+        function reset() {
+            location.reload()
+        }
+    </script>
+</body>
+</html>

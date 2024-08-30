@@ -9,10 +9,9 @@
 
 
         .BtnDisplay {
-            background-color: blue;
             height: 500px;
             width: 500px;
-            border-radius: 50%;
+            border-radius: 0%;
             border: 2px solid black;
             padding:20px;
             margin-left: 200px;
@@ -53,15 +52,15 @@
 <div class="BtnDisplay">
     <button class="buttons" onclick="StartTime()">Start</button>
     <button class="buttons" onclick="StartLap()">Runde</button>
-    <button class="buttons" onclick="ResetTime()">Reset</button>
+    <button class="buttons" onclick="stopAll()">Reset</button>
 
 <div id="showTime" class="display">0.0</div>
 Rundetid:<div id="laps" class="rounds"></div>
 </div>
 
     <script>
-        let showTime = document.getElementById('showTime');
-        let laps = document.getElementById('laps');
+        const showTime = document.getElementById('showTime');
+        const laps = document.getElementById('laps');
         let seconds = 0;
         var timer;
         
@@ -74,10 +73,10 @@ Rundetid:<div id="laps" class="rounds"></div>
         setInterval(countSec, 1000);
      }
 
-     function ResetTime() {
+     function StartLap() {
+        laps.innerHTML += <li>${seconds-1} sekunder</li>
         clearInterval(timer)
-        seconds = 0.0;
-        showTime = seconds;
+        seconds = 0;
 
      }
 
