@@ -39,10 +39,8 @@
     <div class="buttons">
     <button id="startButton" onclick="start()">Start</button>
     <button id="stopButton" onclick="stop()">Runde</button>
-    <button id="resetButton" onclick="reset()">Reset</button>
+    <button id="resetButton" onclick="reset()">Pause</button>
     </div>
-</div>
-</div>
     
     <script>
         const time = document.getElementById('displayTime');
@@ -52,22 +50,22 @@
         var myTimer;
 
         function counter() {
-            document.getElementById('displayTime').innerHTML = seconds;
+            time.innerHTML = seconds;
             seconds++;
         }
 
         function start() {
-            setInterval(counter, 1000);
+           myTimer = setInterval(counter, 1000);
         }
 
         function stop() {
-            document.getElementById('displayLaps').innerHTML += `<li> ${seconds} sekunder </li>`
-            clearInterval(myTimer);
+            laps.innerHTML += `<li> ${seconds} sekunder </li>`
+            
             seconds = 0;
         }
 
         function reset() {
-            location.reload()
+            clearInterval(myTimer);
         }
     </script>
 </body>
